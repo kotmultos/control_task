@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Alert, Button, Form} from "react-bootstrap";
 import {joiResolver} from '@hookform/resolvers/joi';
 import {useForm} from 'react-hook-form';
 import {loginValidator} from "../../modules/validation/loginValidator";
-
-
+import ContextData from "../../context/data/ContextData";
 
 const LoginForm = ({setFunc}) => {
-
+    const {stateData} = useContext(ContextData);
     const [isDataCorrect, setIsDataCorrect] = useState(true);
 
     const {
@@ -19,6 +18,7 @@ const LoginForm = ({setFunc}) => {
 
     function submitForm(e) {
         // e.preventDefault();
+        console.log(stateData)
         try {
             // connect to DB and confirm if the user exists
 
@@ -39,7 +39,7 @@ const LoginForm = ({setFunc}) => {
     const resetState = () => { setIsDataCorrect(true);}
 
     return (
-        <div className={"mx-2 width-500"}>
+        <div className={"mx-2"}>
             <p>Доступ до цієї сторінки потребує входу в акаунт.</p>
             <p>Будь ласка, авторизуйтесь для продовження роботи.</p>
             <Form onSubmit={handleSubmit(submitForm)}>
