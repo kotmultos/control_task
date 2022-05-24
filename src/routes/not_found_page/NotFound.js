@@ -13,7 +13,7 @@ const NotFound = () => {
             </Row>
             <Row>
                 <Col>
-                    <div className={'mt-2 mx-2 text-center'}>
+                    <div className={'mt-2 mx-2 text-center bg-light '}>
                         <p>Oops... Wrong route was specified;( <Link to={'/'}>Go to home page</Link></p>
                     </div>
                 </Col>

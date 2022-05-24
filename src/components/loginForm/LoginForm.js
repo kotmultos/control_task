@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import {Alert, Button, Form} from "react-bootstrap";
 import {joiResolver} from '@hookform/resolvers/joi';
 import {useForm} from 'react-hook-form';
-import {loginValidator} from "../../modules/validation/loginValidator";
+import {LoginValidator} from "../../modules/validation/LoginValidator";
 import ContextData from "../../context/data/ContextData";
 
 const LoginForm = ({setFunc}) => {
@@ -13,7 +13,7 @@ const LoginForm = ({setFunc}) => {
         register,
         handleSubmit,
         formState: {errors}
-    } = useForm({resolver: joiResolver(loginValidator), mode: 'onChange'});
+    } = useForm({resolver: joiResolver(LoginValidator), mode: 'onChange'});
 
 
     function submitForm(e) {
@@ -22,7 +22,7 @@ const LoginForm = ({setFunc}) => {
         try {
             // connect to DB and confirm if the user exists
 
-            if(0) {
+            if(1) {
                 setFunc(true);
             }// user exists + password is correct
             else {
@@ -39,7 +39,7 @@ const LoginForm = ({setFunc}) => {
     const resetState = () => { setIsDataCorrect(true);}
 
     return (
-        <div className={"mx-2"}>
+        <div className={"mt-2 mx-2"}>
             <p>Доступ до цієї сторінки потребує входу в акаунт.</p>
             <p>Будь ласка, авторизуйтесь для продовження роботи.</p>
             <Form onSubmit={handleSubmit(submitForm)}>

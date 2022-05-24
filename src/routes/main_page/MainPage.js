@@ -35,14 +35,14 @@ const MainPage = () => {
     return (
         <Container>
             <Row>
-                <Col className={"col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12"}>
+                <Col className={"col-12"}>
                     <NavBar/>
                 </Col>
             </Row>
 
-            <Row>
-                <div className={"mx-2 mt-2"}>
-                    <Form className="d-flex col-6">
+            <Row className={"justify-content-center"}>
+                <Col className={"col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12 mx-2 mt-2"}>
+                    <Form className="d-flex ">
                         <FormControl
                             type="search"
                             placeholder="Search"
@@ -51,23 +51,18 @@ const MainPage = () => {
                         />
                         <Button variant="outline-success">Search</Button>
                     </Form>
-                </div>
-            </Row>
-
-            <Row>
-                <Col className={"col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12"}>
-                    <div /*className={"d-flex col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12"}*/>
-                        {
-                            images.map((elem, index) => {
-                                return (
-                                    <ImageItem className={"col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-6"} data={elem} key={index}/>
-                                )
-                            })
-                        }
-                    </div>
                 </Col>
             </Row>
 
+            <Row>
+                {
+                    images.map((elem, index) => {
+                        return (
+                            <ImageItem data={elem} key={index}/>
+                        )
+                    })
+                }
+            </Row>
         </Container>
     );
 };

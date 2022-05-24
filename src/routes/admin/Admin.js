@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 
 import NavBar from "../../modules/navigation/NavBar";
-import LoginForm from "../../components/loginForm/loginForm";
+import LoginForm from "../../components/loginForm/LoginForm";
 import AddNewForm from "../../components/addNewForm/addNewForm";
 
 import './Admin.css'
@@ -18,7 +18,7 @@ const Admin = () => {
                     <NavBar/>
                 </Col>
             </Row>
-            <Row>
+            <Row className={"justify-content-center"}>
                 { !isEntered && <Col className={"col-xxl-4 col-xl-5 col-lg-6 col-md-12 col-12"}>
                      <LoginForm setFunc={setIsEntered}/>
                 </Col> }
@@ -27,8 +27,6 @@ const Admin = () => {
                     <AddNewForm/>
                 </Col> }
             </Row>
-
-
         </Container>
     );
 };

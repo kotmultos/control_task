@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export const loginValidator = Joi.object({
+export const LoginValidator = Joi.object({
     username: Joi
         .string()
         .min(5)
