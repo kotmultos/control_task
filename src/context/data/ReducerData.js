@@ -1,6 +1,6 @@
 const ReducerData = (state, action) => {
     switch (action.type) {
-        case "FETCH_IMAGES":
+        case "GET_IMAGES":
             console.log(action);
             return {
                 ...state,

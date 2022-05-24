@@ -5,31 +5,20 @@ import contextData from "../../context/data/ContextData";
 
 import './MainPage.css'
 import ImageItem from "../../components/image_item/ImageItem";
+import {imageService} from "../../services/image.service";
 
 const MainPage = () => {
     const {stateData, dispatchData} = useContext(contextData);
     const images = stateData.images;
 
     useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const response = await fetch(stateData.database_route);
-                // console.log(await response.json())
-                console.log("status " + response.status);
-                if (response.status === 200) {
-                    const result = await response.json();
-                    console.log(result);
-                    dispatchData({
-                        type: "FETCH_IMAGES",
-                        payload: result
-                    })
-                }
-            }
-            catch (e) {
-                console.log(e);
-            }
-        }
-        fetchImages();
+        imageService.getAll().then(value => {
+            dispatchData({
+                type: "GET_IMAGES",
+                payload: value.data
+            })
+            console.log(value.data);
+        })
     }, [])
 
     return (
