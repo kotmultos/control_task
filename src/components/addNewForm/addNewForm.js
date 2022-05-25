@@ -5,11 +5,14 @@ import {joiResolver} from "@hookform/resolvers/joi/dist/joi";
 
 import ContextData from "../../context/data/ContextData";
 import {AddNewValidator} from "../../modules/validation/AddNewValidator";
+import {imageService} from "../../services/image.service";
+import contextData from "../../context/data/ContextData";
 
 const AddNewForm = () => {
 
-    const {stateData} = useContext(ContextData);
+    // const {stateData} = useContext(ContextData);
     const [isDataCorrect, setIsDataCorrect] = useState(false);
+    const {stateData, dispatchData} = useContext(contextData);
 
     const {
         register,
@@ -19,6 +22,16 @@ const AddNewForm = () => {
 
     function submitForm(e) {
         console.log(e);
+
+        imageService.addNew(e).then(value => {
+            // dispatchData({
+            //     type: "GET_IMAGES",
+            //     payload: value.data
+
+            // })
+            console.log(value);
+        })
+
 
         try {
             // connect to DB and confirm if the user exists
@@ -42,13 +55,6 @@ const AddNewForm = () => {
         <div className={"mt-2 mx-2"}>
             { !isDataCorrect &&
                 <Form onSubmit={handleSubmit(submitForm)}>
-                    <Form.Group className="mb-3" controlId="formUrl">
-                        <Form.Label>Image link</Form.Label>
-                        <Form.Control type="text" name={"url"}
-                                      placeholder="Enter image link here" {...register('url')} />
-                    </Form.Group>
-                    {errors.url && <Alert variant={'warning'} className={'mt-2'}>{errors.url.message}</Alert>}
-
                     <Form.Group className="mb-3" controlId="formCaption">
                         <Form.Label>Image caption</Form.Label>
                         <Form.Control type="text" placeholder="Enter image caption here"
@@ -58,10 +64,17 @@ const AddNewForm = () => {
 
                     <Form.Group className="mb-3" controlId="formDescription">
                         <Form.Label>Image description</Form.Label>
-                        <Form.Control type="text" placeholder="Enter image description here"
+                        <Form.Control as={"textarea"} placeholder="Enter image description here"
                                       name={"description"} {...register('description')}/>
                     </Form.Group>
                     {errors.description && <Alert variant={'warning'} className={'mt-2'}>{errors.description.message}</Alert>}
+
+                    <Form.Group className="mb-3" controlId="formUrl">
+                        <Form.Label>Image link</Form.Label>
+                        <Form.Control type="text" name={"url"}
+                                      placeholder="Enter image link here" {...register('url')} />
+                    </Form.Group>
+                    {errors.url && <Alert variant={'warning'} className={'mt-2'}>{errors.url.message}</Alert>}
 
                     <Button variant="primary"  type="submit">Додати</Button>
                 </Form>

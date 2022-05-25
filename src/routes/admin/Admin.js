@@ -23,7 +23,7 @@ const Admin = () => {
                      <LoginForm setFunc={setIsEntered}/>
                 </Col> }
 
-                {isEntered && <Col className={"col-xxl-4 col-xl-5 col-lg-6 col-md-12 col-12"}>
+                {isEntered && <Col className={"col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12"}>
                     <AddNewForm/>
                 </Col> }
             </Row>

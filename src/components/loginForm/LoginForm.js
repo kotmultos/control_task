@@ -22,7 +22,7 @@ const LoginForm = ({setFunc}) => {
         try {
             // connect to DB and confirm if the user exists
 
-            if(1) {
+            if(e.username==="admin" && e.password==="password") {
                 setFunc(true);
             }// user exists + password is correct
             else {
