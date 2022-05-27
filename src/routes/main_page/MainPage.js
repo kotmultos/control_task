@@ -27,7 +27,7 @@ const MainPage = () => {
     }, [])
 
     const search = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         const searchFor = e.target.value;
 
         // imagesToDisplay = images.filter(item => item.caption.includes(searchFor) || item.description.includes(searchFor) )

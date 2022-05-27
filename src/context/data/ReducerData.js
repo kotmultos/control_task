@@ -1,7 +1,7 @@
 const ReducerData = (state, action) => {
     switch (action.type) {
         case "GET_IMAGES":
-            console.log(action);
+            // console.log(action);
             return {
                 ...state,
                 images: action.payload

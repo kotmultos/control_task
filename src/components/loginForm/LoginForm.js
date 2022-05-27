@@ -3,10 +3,10 @@ import {Alert, Button, Form} from "react-bootstrap";
 import {joiResolver} from '@hookform/resolvers/joi';
 import {useForm} from 'react-hook-form';
 import {LoginValidator} from "../../modules/validation/LoginValidator";
-import ContextData from "../../context/data/ContextData";
+// import ContextData from "../../context/data/ContextData";
 
 const LoginForm = ({setFunc}) => {
-    const {stateData} = useContext(ContextData);
+    // const {stateData} = useContext(ContextData);
     const [isDataCorrect, setIsDataCorrect] = useState(true);
 
     const {
@@ -16,18 +16,12 @@ const LoginForm = ({setFunc}) => {
     } = useForm({resolver: joiResolver(LoginValidator), mode: 'onChange'});
 
     function submitForm(e) {
-        console.log(stateData)
-        try {
-            if(e.username==="admin" && e.password==="password") {
-                setFunc(true);
-            }
-            else {
-                setIsDataCorrect(false);
-            }
+        // console.log(stateData)
+        if(e.username==="admin" && e.password==="password") {
+            setFunc(true);
         }
-        catch (e) {
-                // catch problems with connnection
-            console.log(e);
+        else {
+            setIsDataCorrect(false);
         }
     }
 
