@@ -11,12 +11,12 @@ export const AddNewValidator = Joi.object({
 
     caption: Joi
         .string()
-        .max(30)
+        .max(50)
         .trim()
         .required()
         .messages({
             'string.empty': 'Обов\'язкове поле',
-            'string.max': 'Максимальна кількість символів 30',
+            'string.max': 'Максимальна кількість символів 50',
         }),
 
     description: Joi

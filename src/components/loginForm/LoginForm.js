@@ -15,25 +15,20 @@ const LoginForm = ({setFunc}) => {
         formState: {errors}
     } = useForm({resolver: joiResolver(LoginValidator), mode: 'onChange'});
 
-
     function submitForm(e) {
-        // e.preventDefault();
         console.log(stateData)
         try {
-            // connect to DB and confirm if the user exists
-
             if(e.username==="admin" && e.password==="password") {
                 setFunc(true);
-            }// user exists + password is correct
+            }
             else {
                 setIsDataCorrect(false);
             }
         }
         catch (e) {
-            // catch problems with connnection
-
+                // catch problems with connnection
+            console.log(e);
         }
-
     }
 
     const resetState = () => { setIsDataCorrect(true);}
