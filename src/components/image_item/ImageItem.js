@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Col, Image, Modal, Nav} from "react-bootstrap";
+import {Col, Image, Modal, Nav} from "react-bootstrap";
 
 import './ImageItem.css'
 

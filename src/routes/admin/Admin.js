@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 
 import NavBar from "../../modules/navigation/NavBar";
 import LoginForm from "../../components/loginForm/LoginForm";

@@ -1,6 +1,5 @@
 const StateData = {
-    images: [],
-    database_route: "http://192.168.0.3:3001/images"
+    images: []
 }
 
 export default StateData;
